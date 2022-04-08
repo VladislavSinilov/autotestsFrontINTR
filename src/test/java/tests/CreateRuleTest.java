@@ -1,12 +1,13 @@
-package Tests;
+package tests;
 
-import Base.BaseTest;
-import MainPages.CreateRuleMainPage;
-import Pages.CreateRulePage;
+import base.BaseTest;
+import mainpages.CreateRuleMainPage;
+import pages.CreateRulePage;
 import org.junit.jupiter.api.Test;
+import utils.Constants;
 
 /**
- * Тест создания правила выполнения сценария
+ * Creating a Script Execution rule
  */
 
 public class CreateRuleTest extends BaseTest {
@@ -15,7 +16,7 @@ public class CreateRuleTest extends BaseTest {
     @Test
     public void createRule() throws InterruptedException {
 
-        String URL = "http://localhost:3000/";
+        String URL = Constants.Host;
         CreateRuleMainPage createRuleMainPage = new CreateRuleMainPage(URL);
         createRuleMainPage.doCreateRule();
         CreateRulePage createRule = new CreateRulePage();
