@@ -1,6 +1,8 @@
 package tests;
 
 import base.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import mainpages.CreateRuleMainPage;
 import pages.CreateRulePage;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,8 @@ public class CreateRuleTest extends BaseTest {
 
 
     @Test
+    @Owner("Vladislav Sinilov")
+    @Description("Creating a Script Execution rule")
     public void createRule() throws InterruptedException {
 
         String URL = Constants.Host;

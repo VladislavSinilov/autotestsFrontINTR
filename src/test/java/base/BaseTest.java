@@ -22,6 +22,7 @@ abstract public class BaseTest {
         Configuration.browserSize = "1920x1080";
         Configuration.pollingInterval = 300;
         Configuration.holdBrowserOpen = false;
+        Configuration.screenshots = true;
         Configuration.savePageSource = true;
         Configuration.reportsFolder = "build/selenideReports/tests";
         Configuration.selectorMode = SelectorMode.valueOf("CSS");
