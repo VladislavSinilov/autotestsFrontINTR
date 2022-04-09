@@ -11,10 +11,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class CreateRuleMainPage {
 
-   //not working, need to fix // private final SelenideElement createRule = $x("//button[contains(text(), 'Создать')]");
-    private final SelenideElement createRule = $x("//button");
-    private final SelenideElement deleteRule = $x("");
-    private final SelenideElement editRule = $x("");
+    private final SelenideElement createRule = $x("//button[contains(text(), 'Создать')]");
+  //  private final SelenideElement createRule = $x("//button");
+    //  private final SelenideElement deleteRule = $x("");
+   // private final SelenideElement editRule = $x("");
 
     /**
      *

@@ -8,6 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import utils.CopyAFile;
 
 /**
  * Base class Selenide
@@ -17,6 +18,7 @@ abstract public class BaseTest {
 
     @BeforeEach
     public void setUp() {
+        CopyAFile.doCopyFile(); // need refactor in the future
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
