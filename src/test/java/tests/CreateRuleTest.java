@@ -14,16 +14,16 @@ import utils.Constants;
 
 public class CreateRuleTest extends BaseTest {
 
-
     @Test
     @Owner("Vladislav Sinilov")
     @Description("Creating a Script Execution rule")
     public void createRule() throws InterruptedException {
         String URL = Constants.URL;
         RuleMainPage createRuleMainPage = new RuleMainPage(URL);
-        createRuleMainPage.doCreateRule();
+        createRuleMainPage.actionsOnPage("CreateRule");
         CreateRulePage createRule = new CreateRulePage();
-        createRule.addValues("CreateRule");
+        createRule.fillRulePage(Constants.createARule);
+        //  need to finish
     }
 
     @Test
@@ -32,9 +32,9 @@ public class CreateRuleTest extends BaseTest {
     public void cancelRule() throws InterruptedException {
         String URL = Constants.URL;
         RuleMainPage createRuleMainPage = new RuleMainPage(URL);
-        createRuleMainPage.doCreateRule();
+        createRuleMainPage.actionsOnPage("CreateRule");
         CreateRulePage cancelRule = new CreateRulePage();
-        cancelRule.addValues("CancelRule");
+        cancelRule.fillRulePage(Constants.cancelingRuleCreation);
+        //  need to finish
     }
-
 }

@@ -11,9 +11,12 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class RuleMainPage {
 
+    private final SelenideElement tableOfRulesList = $x("/html/body/div/div/div/div/div/table"); // need refactor
+    private final SelenideElement headOfRulesList = $x("/html/body/div/div/div/div/div/table/thead/tr"); // the same as above
+    private final SelenideElement bodyfRulesList = $x("/html/body/div/div/div/div/div/table/tbody"); // the same as above
     private final SelenideElement createRule = $x("//button[contains(text(), 'Создать')]");
-    //  private final SelenideElement deleteRule = $x("");
-   // private final SelenideElement editRule = $x("");
+    private final SelenideElement deleteRule = $x("//*[@data-testid=\"DeleteOutlineIcon\"]");
+    private final SelenideElement editRule = $x("//*[@data-testid=\"EditIcon\"]");
 
     /**
      *
@@ -25,10 +28,18 @@ public class RuleMainPage {
     }
 
     /**
-     * Clicking on the create button
+     * Method for controlling 3 buttons on MainPage
      */
-    public void doCreateRule() throws InterruptedException {
-        createRule.click();
-        Thread.sleep(300);
+    public void actionsOnPage(String scenario) throws InterruptedException {
+        if(scenario.contains("Create")){
+            createRule.click();
+            Thread.sleep(300);
+        }
+       else if(scenario.contains("Edit")){
+           editRule.click();
+        }
+       else {
+           deleteRule.click();
+        }
     }
 }

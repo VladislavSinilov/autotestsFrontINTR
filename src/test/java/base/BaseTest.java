@@ -23,7 +23,7 @@ abstract public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.pollingInterval = 200;
-        Configuration.holdBrowserOpen = false;
+        Configuration.holdBrowserOpen = true;
         Configuration.screenshots = true;
         Configuration.savePageSource = true;
         Configuration.reportsFolder = "build/selenideReports/tests";
@@ -34,10 +34,8 @@ abstract public class BaseTest {
         SelenideLogger.addListener("AllureSelenude", new AllureSelenide());
     }
 
-
     @AfterAll
     public static void tearDown(){
         Selenide.closeWebDriver();
     }
-
 }

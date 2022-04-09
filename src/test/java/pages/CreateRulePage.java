@@ -1,9 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-
-import java.nio.charset.StandardCharsets;
-import java.util.Random;
+import utils.GenerateRndStr;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -15,41 +13,41 @@ public class CreateRulePage {
 
     private final SelenideElement textInName = $x("//input[@id='name']");
     private final SelenideElement textInCode = $x("//input[@id='code']");
-    private final SelenideElement checkboxtInIsForBo = $x("//input[@id='isForBO']");
-    private final SelenideElement checkboxtInIsForStateNew = $x("//input[@id='isForStateNew']");
+    private final SelenideElement checkBoxIsForBo = $x("//input[@id='isForBO']");
+    private final SelenideElement checkBoxIsForIIS = $x("//*[@id=\"isForIIS\"]");
+    private final SelenideElement checkBoxIsForStateNew = $x("//input[@id='isForStateNew']");
+    private final SelenideElement checkBoxIsForStateActive = $x("//*[@id=\"isForStateActive\"]");
+    private final SelenideElement checkBoxIsForStateClosed = $x("//*[@id=\"isForStateClosed\"]");
+    private final SelenideElement checkBoxIsForStateBroken= $x("//*[@id=\"isForStateBroken\"]");
+    private final SelenideElement checkBoxIsForNoDepo= $x("//*[@id=\"isForNoDepo\"]");
+    private final SelenideElement checkBoxIsIgnoreBlackList= $x("//*[@id=\"isIgnoreBlackList\"]");
+    private final SelenideElement checkBoxIsFor3dParty= $x("//*[@id=\"isFor3dParty\"]");
+    private final SelenideElement checkBoxIsPhoneRequired= $x("//*[@id=\"isPhoneRequired\"]");
+    private final SelenideElement checkBoxIsEmailRequired= $x("//*[@id=\"isEmailRequired\"]");
+    private final SelenideElement checkBoxIsControlPos= $x("//*[@id=\"isControlPos\"]");
+    private final SelenideElement checkBoxIsControlHQ= $x("//*[@id=\"isControlHQ\"]");
      private final SelenideElement buttonSave = $x("//button[contains(text(), 'Сохранить')]");
     private final SelenideElement buttonCancel = $x("//button[contains(text(), 'Отмена')]");
-
-
-    /**
-     *
-     * @return A set of random Strings  - // need rework
-     */
-    public static String generateRndChar() {
-        byte[] array = new byte[7]; // length is bounded by 7
-        new Random().nextBytes(array);
-        return  new String(array, StandardCharsets.UTF_8);
-    }
 
     /**
      *
      * Filling in the create rule page parameters
      */
-    public void addValues(String scenario) throws InterruptedException {
-        if(scenario.contains("Create")) {
-            textInName.setValue(generateRndChar());
-            Thread.sleep(300);
-            textInCode.setValue(generateRndChar());
-            Thread.sleep(300);
-            checkboxtInIsForBo.click();
-            checkboxtInIsForStateNew.click();
-            Thread.sleep(300);
-            buttonSave.click();
-        } else if
-        (scenario.contains("Cancel"))
-        {
-            Thread.sleep(300);
-          buttonCancel.click();
+    public void fillRulePage(int numberOfScenario) throws InterruptedException {
+        switch (numberOfScenario) {
+            case 1:
+                textInName.setValue(GenerateRndStr.getAlphaNumericString(10));
+                Thread.sleep(300);
+                textInCode.setValue(GenerateRndStr.getAlphaNumericString(5));
+                Thread.sleep(300);
+                checkBoxIsForBo.click();
+                checkBoxIsForStateNew.click();
+                Thread.sleep(300);
+                buttonSave.click();
+                break;
+            case 2:
+                buttonCancel.click();
+                break;
         }
     }
 }
