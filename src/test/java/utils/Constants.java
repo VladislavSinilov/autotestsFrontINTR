@@ -2,6 +2,6 @@ package utils;
 
 public class Constants {
 
-    public static final String Host = "http://localhost:3000/";
+    public static final String URL = "http://localhost:3000/";
 
 }

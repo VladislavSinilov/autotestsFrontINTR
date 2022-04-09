@@ -17,10 +17,8 @@ public class CreateRulePage {
     private final SelenideElement textInCode = $x("//input[@id='code']");
     private final SelenideElement checkboxtInIsForBo = $x("//input[@id='isForBO']");
     private final SelenideElement checkboxtInIsForStateNew = $x("//input[@id='isForStateNew']");
-    private final SelenideElement buttonSave = $x("/html/body/div[2]/div[3]/div/div[3]/button[1]");
-    private final SelenideElement buttonCancel = $x("/html/body/div[2]/div[3]/div/div[3]/button[2]");
-    // not working,need to fix // private final SelenideElement buttonSave = $x("//button[contains(text(), 'Сохранить')]");
-    // not working,need to fix // private final SelenideElement buttonCancel = $x("//button[contains(text(), 'Отмена')]");
+     private final SelenideElement buttonSave = $x("//button[contains(text(), 'Сохранить')]");
+    private final SelenideElement buttonCancel = $x("//button[contains(text(), 'Отмена')]");
 
 
     /**
@@ -37,15 +35,22 @@ public class CreateRulePage {
      *
      * Filling in the create rule page parameters
      */
-    public void addValues() throws InterruptedException {
-        textInName.setValue(generateRndChar());
-        Thread.sleep(500);
-        textInCode.setValue(generateRndChar());
-        Thread.sleep(500);
-        checkboxtInIsForBo.click();
-        checkboxtInIsForStateNew.click();
-        Thread.sleep(800);
-        buttonSave.click();
+    public void addValues(String scenario) throws InterruptedException {
+        if(scenario.contains("Create")) {
+            textInName.setValue(generateRndChar());
+            Thread.sleep(300);
+            textInCode.setValue(generateRndChar());
+            Thread.sleep(300);
+            checkboxtInIsForBo.click();
+            checkboxtInIsForStateNew.click();
+            Thread.sleep(300);
+            buttonSave.click();
+        } else if
+        (scenario.contains("Cancel"))
+        {
+            Thread.sleep(300);
+          buttonCancel.click();
+        }
     }
 }
 

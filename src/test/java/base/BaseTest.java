@@ -22,13 +22,13 @@ abstract public class BaseTest {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
-        Configuration.pollingInterval = 300;
+        Configuration.pollingInterval = 200;
         Configuration.holdBrowserOpen = false;
         Configuration.screenshots = true;
         Configuration.savePageSource = true;
         Configuration.reportsFolder = "build/selenideReports/tests";
         Configuration.selectorMode = SelectorMode.valueOf("CSS");
-        Configuration.fastSetValue = true;
+        Configuration.fastSetValue = false; // keep false coz ruin the fields
         Configuration.driverManagerEnabled = true;
         Configuration.headless = false;
         SelenideLogger.addListener("AllureSelenude", new AllureSelenide());
