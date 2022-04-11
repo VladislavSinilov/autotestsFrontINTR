@@ -17,7 +17,7 @@ ext{
 
 dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:${jupiterVersion}"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}"
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.1.0'
     testImplementation 'com.codeborne:selenide:6.3.5'
 

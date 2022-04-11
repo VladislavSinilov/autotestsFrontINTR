@@ -31,7 +31,7 @@ abstract public class BaseTest {
         Configuration.fastSetValue = false; // keep false coz ruin the fields
         Configuration.driverManagerEnabled = true;
         Configuration.headless = true;
-        SelenideLogger.addListener("AllureSelenude", new AllureSelenide());
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterAll

@@ -14,12 +14,11 @@ public class DeleteRuleTest {
     @Description("Canceling the deletion of the script execution rule")
     public void deleteRule() throws InterruptedException {
         String URL = Constants.URL;
-        RuleMainPage deleteRuleMainPage = new RuleMainPage(URL);
-        deleteRuleMainPage.actionsOnPage("CancelDeteleRule");
-        Thread.sleep(5000);
+        RuleMainPage ruleMainPage = new RuleMainPage(URL);
+        ruleMainPage.actionsOnPage("Delete");
         DeleteRulePage deleteRulePage = new DeleteRulePage();
         deleteRulePage.chooseButton("Cancel");
-      //  need to finish
+        //  need to finish
     }
 
     @Test
@@ -27,9 +26,8 @@ public class DeleteRuleTest {
     @Description("Delete a Script Execution rule")
     public void cancelDeleteRule() throws InterruptedException {
         String URL = Constants.URL;
-        RuleMainPage deleteRuleMainPage = new RuleMainPage(URL);
-        deleteRuleMainPage.actionsOnPage("DeteleRule");
-        Thread.sleep(5000);
+        RuleMainPage ruleMainPage = new RuleMainPage(URL);
+        ruleMainPage.actionsOnPage("Delete");
         DeleteRulePage deleteRulePage = new DeleteRulePage();
         deleteRulePage.chooseButton("Delete");
         //  need to finish

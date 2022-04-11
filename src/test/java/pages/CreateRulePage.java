@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import utils.GenerateRndStr;
 
+
 import static com.codeborne.selenide.Selenide.$x;
 
 /**
@@ -26,23 +27,20 @@ public class CreateRulePage {
     private final SelenideElement checkBoxIsEmailRequired= $x("//*[@id=\"isEmailRequired\"]");
     private final SelenideElement checkBoxIsControlPos= $x("//*[@id=\"isControlPos\"]");
     private final SelenideElement checkBoxIsControlHQ= $x("//*[@id=\"isControlHQ\"]");
-     private final SelenideElement buttonSave = $x("//button[contains(text(), 'Сохранить')]");
+    private final SelenideElement buttonSave = $x("//button[contains(text(), 'Сохранить')]");
     private final SelenideElement buttonCancel = $x("//button[contains(text(), 'Отмена')]");
 
     /**
      *
      * Filling in the create rule page parameters
      */
-    public void fillRulePage(int numberOfScenario) throws InterruptedException {
+    public void fillRulePage(int numberOfScenario) {
         switch (numberOfScenario) {
             case 1:
                 textInName.setValue(GenerateRndStr.getAlphaNumericString(10));
-                Thread.sleep(300);
                 textInCode.setValue(GenerateRndStr.getAlphaNumericString(5));
-                Thread.sleep(300);
                 checkBoxIsForBo.click();
                 checkBoxIsForStateNew.click();
-                Thread.sleep(300);
                 buttonSave.click();
                 break;
             case 2:
